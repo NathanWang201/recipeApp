@@ -61,7 +61,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 "Wrap warmed tortillas in a tea towel to keep them warm until serving.\n" +
                 "\n" +
                 "5 Assemble the tacos: Slice the chicken into strips. On each tortilla, place a small handful of arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with the thinned sour cream. Serve with lime wedges.");
-        chickenTaco.setNotes(new Notes(chickenTaco,"Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.)"));
+        chickenTaco.setNotes(new Notes("Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.)"));
         chickenTaco.setDescription("Spicy grilled chicken tacos! Quick marinade, then grill. Ready in about 30 minutes. Great for a quick weeknight dinner, backyard cookouts, and tailgate parties.");
         chickenTaco.setPrepTime(20);
         chickenTaco.setCookTime(15);
@@ -70,16 +70,16 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         chickenTaco.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos/");
 //        chickenTaco.setImage(new byte[]());
 
-        chickenTaco.getIngredients().add(new Ingredient("ancho chili powder", new BigDecimal(2), chickenTaco, tablespoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("dried oregano", new BigDecimal(1), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("dried cumin", new BigDecimal(1), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("sugar", new BigDecimal(1), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("salt", new BigDecimal(1/2), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("clove garlic, finely chopped", new BigDecimal(1), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("finely grated orange zest", new BigDecimal(1), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("olive oil", new BigDecimal(2), chickenTaco, teaspoonUOM.get()));
-        chickenTaco.getIngredients().add(new Ingredient("skinless, boneless chicken thighs", new BigDecimal(4), chickenTaco, teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("ancho chili powder", new BigDecimal(2), tablespoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("dried oregano", new BigDecimal(1), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("dried cumin", new BigDecimal(1), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("sugar", new BigDecimal(1), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("salt", new BigDecimal(1/2), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("clove garlic, finely chopped", new BigDecimal(1), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("finely grated orange zest", new BigDecimal(1), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("fresh-squeezed orange juice", new BigDecimal(3), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("olive oil", new BigDecimal(2), teaspoonUOM.get()));
+        chickenTaco.addIngredient(new Ingredient("skinless, boneless chicken thighs", new BigDecimal(4), teaspoonUOM.get()));
 
         chickenTaco.setDifficulty(Difficulty.EASY);
         chickenTaco.getCategories().add(americanCategory.get());
@@ -93,7 +93,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 "3 Slice mushrooms, add to chicken: When the mushrooms have softened, remove from the water (saving the soaking liquid) and slice thin. Add the mushrooms into the bowl with the chicken. If the soaking water has grit in it, pour the soaking water though a fine-meshed sieve lined with a paper towel into another bowl.\n" +
                 "\n" +
                 "4 Cook chicken, mushrooms with mushroom soaking water: Put the chicken mushroom mixture, and the mushroom soaking liquid into a pot and bring to a boil. Lower the heat to a bare simmer, cover the pot and cook gently for 25 minutes. Serve hot.");
-        chickenSoup.setNotes(new Notes(chickenSoup,"Typically for this recipe one would use bone-in chicken thighs hacked into big pieces with a cleaver, or with poultry shears. The bones help create flavor and richness for the stock. You can use boneless chicken thighs if you prefer. Or use bone-in, and then remove the bones after the chicken has cooked, before serving."));
+        chickenSoup.setNotes(new Notes("Typically for this recipe one would use bone-in chicken thighs hacked into big pieces with a cleaver, or with poultry shears. The bones help create flavor and richness for the stock. You can use boneless chicken thighs if you prefer. Or use bone-in, and then remove the bones after the chicken has cooked, before serving."));
         chickenSoup.setDescription("A simple, light Chinese chicken soup with chicken thighs, shiitake mushrooms and ginger.");
         chickenSoup.setPrepTime(20);
         chickenSoup.setCookTime(25);
@@ -102,14 +102,14 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         chickenSoup.setUrl("https://www.simplyrecipes.com/recipes/chicken_soup_with_ginger_and_shiitake_mushrooms/");
 //        chickenTaco.setImage(new byte[]());
 
-        chickenSoup.getIngredients().add(new Ingredient("dried shiitake mushrooms (dried is much preferable to fresh in this recipe)", new BigDecimal(2), chickenSoup, ounceUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("boiling water", new BigDecimal(3), chickenSoup, cupUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("chicken thighs, preferably bone-in, cut into chunks", new BigDecimal(1), chickenSoup, poundUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("fresh ginger, peeled and sliced very thin", new BigDecimal(1), chickenSoup, inchUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("soy sauce (use gluten-free soy sauce for gluten-free version)", new BigDecimal(2), chickenSoup, tablespoonUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("sugar", new BigDecimal(2), chickenSoup, teaspoonUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("salt", new BigDecimal(1), chickenSoup, pinchUOM.get()));
-        chickenSoup.getIngredients().add(new Ingredient("cornstarch", new BigDecimal(1), chickenSoup, teaspoonUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("dried shiitake mushrooms (dried is much preferable to fresh in this recipe)", new BigDecimal(2),  ounceUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("boiling water", new BigDecimal(3),  cupUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("chicken thighs, preferably bone-in, cut into chunks", new BigDecimal(1),  poundUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("fresh ginger, peeled and sliced very thin", new BigDecimal(1),  inchUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("soy sauce (use gluten-free soy sauce for gluten-free version)", new BigDecimal(2),  tablespoonUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("sugar", new BigDecimal(2),  teaspoonUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("salt", new BigDecimal(1),  pinchUOM.get()));
+        chickenSoup.addIngredient(new Ingredient("cornstarch", new BigDecimal(1),  teaspoonUOM.get()));
 
         chickenSoup.setDifficulty(Difficulty.EASY);
         chickenSoup.getCategories().add(chineseCategory.get());
