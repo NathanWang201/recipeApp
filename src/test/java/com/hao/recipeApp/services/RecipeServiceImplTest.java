@@ -28,7 +28,7 @@ public class RecipeServiceImplTest {
 
     @Test
     public void getRecipes() {
-        //creat mock recipe
+        //create mock recipe
         Recipe recipe = new Recipe();
         Set<Recipe> testRecipes = new HashSet<>();
         testRecipes.add(recipe);
