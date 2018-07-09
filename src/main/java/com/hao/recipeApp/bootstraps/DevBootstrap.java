@@ -66,7 +66,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
                 "\n" +
                 "5 Assemble the tacos: Slice the chicken into strips. On each tortilla, place a small handful of arugula. Top with chicken slices, sliced avocado, radishes, tomatoes, and onion slices. Drizzle with the thinned sour cream. Serve with lime wedges.");
         chickenTaco.setNotes(new Notes("Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.)"));
-        chickenTaco.setDescription("Spicy grilled chicken tacos! Quick marinade, then grill. Ready in about 30 minutes. Great for a quick weeknight dinner, backyard cookouts, and tailgate parties.");
+        chickenTaco.setDescription("Spicy grilled chicken tacos");
         chickenTaco.setPrepTime(20);
         chickenTaco.setCookTime(15);
         chickenTaco.setServings(4);

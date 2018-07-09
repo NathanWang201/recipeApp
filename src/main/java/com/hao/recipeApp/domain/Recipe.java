@@ -43,7 +43,7 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
-        System.out.println("set notes!");
+//        System.out.println("set notes!");
         notes.setRecipe(this);
     }
 
