@@ -1,5 +1,8 @@
 package com.hao.recipeApp.services;
 
+import com.hao.recipeApp.commands.RecipeCommand;
+import com.hao.recipeApp.converters.RecipeCommandToRecipe;
+import com.hao.recipeApp.converters.RecipeToRecipeCommand;
 import com.hao.recipeApp.domain.Recipe;
 import com.hao.recipeApp.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -14,9 +17,13 @@ import java.util.Set;
 public class RecipeServiceImpl implements RecipeService {
 
     private RecipeRepository recipeRepository;
+    private RecipeCommandToRecipe recipeToCommandConverter;
+    private RecipeToRecipeCommand recipeToRecipeCommandConverter;
 
-    public RecipeServiceImpl(RecipeRepository recipeRepository) {
+    public RecipeServiceImpl(RecipeRepository recipeRepository, RecipeCommandToRecipe recipeToCommandConverter, RecipeToRecipeCommand recipeToRecipeCommandConverter) {
         this.recipeRepository = recipeRepository;
+        this.recipeToCommandConverter = recipeToCommandConverter;
+        this.recipeToRecipeCommandConverter = recipeToRecipeCommandConverter;
     }
 
     @Override
@@ -36,6 +43,13 @@ public class RecipeServiceImpl implements RecipeService {
         }
 
         return recipeOptional.get();
+    }
+
+    @Override
+    public RecipeCommand saveRecipeCommand(RecipeCommand recipeCommand) {
+        Recipe recipe = recipeToCommandConverter.convert(recipeCommand);
+        Recipe savedRecipe = recipeRepository.save(recipe);
+        return recipeToRecipeCommandConverter.convert(savedRecipe);
     }
 }
     

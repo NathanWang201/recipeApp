@@ -1,5 +1,7 @@
 package com.hao.recipeApp.services;
 
+import com.hao.recipeApp.converters.RecipeCommandToRecipe;
+import com.hao.recipeApp.converters.RecipeToRecipeCommand;
 import com.hao.recipeApp.domain.Recipe;
 import com.hao.recipeApp.repositories.RecipeRepository;
 import org.junit.Before;
@@ -19,12 +21,16 @@ public class RecipeServiceImplTest {
 
     @Mock
     RecipeRepository recipeRepository;
+    @Mock
+    RecipeCommandToRecipe recipeToCommandConverter;
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommandConverter;
 
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeToCommandConverter, recipeToRecipeCommandConverter);
     }
 
     @Test
@@ -46,17 +52,17 @@ public class RecipeServiceImplTest {
 
     @Test
     public void getRecipesTest() {
-        //create mock recipe
+        //given
         Recipe recipe = new Recipe();
         Set<Recipe> testRecipes = new HashSet<>();
         testRecipes.add(recipe);
 
-        //return the mock recipe set when calling getRecipes()
+        //when
         when(recipeService.getRecipes()).thenReturn(testRecipes);
         Set<Recipe> recipes = recipeService.getRecipes();
-        //the recipe set should have only 1 recipe
+
+        //then
         assertEquals(recipes.size(), 1);
-        //findAll method of the repository should only be called once
         verify(recipeRepository, times(1)).findAll();
         verify(recipeRepository, never()).findById(anyLong());
     }
