@@ -7,6 +7,7 @@ import com.hao.recipeApp.domain.Recipe;
 import com.hao.recipeApp.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
 import java.util.Optional;
@@ -50,6 +51,12 @@ public class RecipeServiceImpl implements RecipeService {
         Recipe recipe = recipeToCommandConverter.convert(recipeCommand);
         Recipe savedRecipe = recipeRepository.save(recipe);
         return recipeToRecipeCommandConverter.convert(savedRecipe);
+    }
+
+    @Override
+    @Transactional
+    public RecipeCommand findCommandById(Long id) {
+        return recipeToRecipeCommandConverter.convert(findById(id));
     }
 }
     
